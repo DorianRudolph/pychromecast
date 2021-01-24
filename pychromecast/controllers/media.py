@@ -457,6 +457,15 @@ class MediaController(BaseController):
         """ Sets the playback rate of the media. """
         self._send_command({MESSAGE_TYPE: TYPE_SET_PLAYBACK_RATE, "playbackRate": rate})
 
+    def set_stream_volume(self, volume):
+        """Allows to set volume. Should be value between 0..1."""
+        volume = min(max(0, volume), 1)
+        self._send_command({MESSAGE_TYPE: "SET_VOLUME", "volume": {"level": volume}})
+
+    def set_stream_volume_muted(self, muted):
+        """ Allows to mute volume. """
+        self._send_command({MESSAGE_TYPE: "SET_VOLUME", "volume": {"muted": muted}})
+
     def block_until_active(self, timeout=None):
         """
         Blocks thread until the media controller session is active on the
