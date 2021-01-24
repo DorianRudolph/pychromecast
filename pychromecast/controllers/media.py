@@ -352,6 +352,10 @@ class MediaController(BaseController):
         call listener.new_media_status(status)"""
         self._status_listeners.append(listener)
 
+    def unregister_status_listener(self, listener):
+        """Unregisters a status listener."""
+        self._status_listeners.remove(listener)
+
     def update_status(self, callback_function_param=False):
         """ Send message to update the status. """
         self.send_message(

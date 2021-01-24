@@ -1154,6 +1154,10 @@ class ReceiverController(BaseController):
         has been received. Listeners will be called with
         listener.new_cast_status(status)"""
         self._status_listeners.append(listener)
+        
+    def unregister_status_listener(self, listener):
+        """Unregisters a status listener."""
+        self._status_listeners.remove(listener)
 
     def register_launch_error_listener(self, listener):
         """Register a listener for when a new launch error message
