@@ -311,6 +311,7 @@ class MediaStatus:
             "supports_stream_mute": self.supports_stream_mute,
             "supports_skip_forward": self.supports_skip_forward,
             "supports_skip_backward": self.supports_skip_backward,
+            "supports_playback_rate": self.supports_playback_rate,
         }
         info.update(self.__dict__)
         return "<MediaStatus {}>".format(info)
