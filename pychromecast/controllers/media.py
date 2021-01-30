@@ -105,7 +105,7 @@ class MediaStatus:
             # Add time since last update
             return (
                 self.current_time
-                + (datetime.utcnow() - self.last_updated).total_seconds()
+                + (datetime.utcnow() - self.last_updated).total_seconds() * self.playback_rate
             )
         # Not playing, return last reported seek time
         return self.current_time
